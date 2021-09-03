@@ -33,12 +33,7 @@ router.put('/:id', validateProjectId, validateProject, (req, res, next) => {
     .catch(next)
 })
 
-//NOT DONE
 router.delete('/:id', validateProjectId, async (req, res, next) => {
-    // Projects.remove(req.params.id)
-    // .then(response => !response ? res.status(404)
-    // : res.status(200))
-    // .catch(next)
     try {
         await Projects.remove(req.params.id)
         res.end()

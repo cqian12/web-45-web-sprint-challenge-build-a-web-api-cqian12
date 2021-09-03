@@ -17,7 +17,7 @@ router.get('/:id', validateProjectId, (req, res) => {
 
 router.post('/', validateProject, async (req, res, next) => {
     try {
-        const newProject = await Projects.insert({name: req.name, description: req.description})
+        const newProject = await Projects.insert({name:req.name, description:req.description, completed:req.body.completed})
         res.status(201).json(newProject)
     } catch(err) {
         next(err)

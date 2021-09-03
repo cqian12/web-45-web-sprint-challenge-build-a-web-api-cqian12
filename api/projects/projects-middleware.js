@@ -6,21 +6,30 @@ module.exports = {
     validateProjectId
 }
 
-async function validateProjectId (req, res, next) {
+function validateProjectId (req, res, next) {
     const { id } = req.params
 
-    try {
-        const project = Projects.get(id)
-        if (!project) {
-            res.status(404).json({message:"project not found"})
-        } else {
-            req.project = project
-            next()
-        }
+    Projects.get(id)
+    .then(project => { if(!project) {
+        res.status(404).json({message:"project not found"})
+    } else {
+        req.project = project
+        next()
     }
-    catch(err) {
-        res.status(500).json({message:"problem finding project"})   
-    }
+    })
+    .catch(err => res.status(500).json({message:"problem finding project"}))
+    // try {
+    //     const project = Projects.get(id)
+    //     if (!project) {
+    //         res.status(404).json({message:"project not found"})
+    //     } else {
+    //         req.project = project
+    //         next()
+    //     }
+    // }
+    // catch(err) {
+    //     res.status(500).json({message:"problem finding project"})   
+    // }
 }
 
 function validateProject (req, res, next) {

@@ -1,4 +1,8 @@
 // add middlewares here related to actions
+module.exports = {
+    validateAction
+}
+
 function validateAction (req, res, next) {
     const { notes, description } = req.body
     if (!notes || notes.trim() === '' || !description || description.trim() === '') {

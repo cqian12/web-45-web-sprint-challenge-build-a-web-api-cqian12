@@ -10,12 +10,13 @@ function validateProjectId (req, res, next) {
     const { id } = req.params
 
     Projects.get(id)
-    .then(project => { if(!project) {
-        res.status(404).json({message:"project not found"})
-    } else {
-        req.project = project
-        next()
-    }
+    .then(project => { 
+        if(!project) {
+            res.status(404).json({message:"project not found"})
+        } else {
+            req.project = project
+            next()
+        }
     })
     .catch(err => res.status(500).json({message:"problem finding project"}))
     // try {

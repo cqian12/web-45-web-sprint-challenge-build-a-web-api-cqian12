@@ -147,7 +147,17 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+Node.js is used to write server code in JS, whereas it had previously only been able to be written in other languages. This allows for writing client and server side code using the same language, and asynchronously in addition. Express is a Node module used for building web apps and services. It is easier than Node's built in HTTP module and allows you to build RESTful apps.
 1. Understand and explain the use of Middleware.
+Middleware is supplemental code that provide services not offered out of the box in applications. There is built-in middleware, which is included with the module or app, custom middleware that you write yourself, and custom middleware that you can import to your own code.
 1. The basic principles of the REST architectural style.
+REST says that: 
+-everything is a resource.
+-each resource is accessible via a unique URI.
+-resources can have multiple representations.
+-communication happens over a stateless protocol (HTTP).
+-resource management happens via HTTP methods.
 1. Understand and explain the use of Express Routers.
+Express Routers are used to create multiple routers within a single application, all of which can then be combined together.
 1. Describe tooling used to manually test the correctness of an API.
+You can write middleware that tests for errors and applies logic about how to handle such errors. You can also use the debugger in your coding interface.
